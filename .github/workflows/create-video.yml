@@ -1,0 +1,37 @@
+name: Create SharvinKidsTV Video
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-video:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install FFmpeg and eSpeak
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg espeak-ng
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python packages
+        run: |
+          pip install -r requirements.txt
+
+      - name: Create ABC video
+        run: |
+          python scripts/create_video.py scripts/abc-song.json
+
+      - name: Upload generated video
+        uses: actions/upload-artifact@v4
+        with:
+          name: SharvinKidsTV-ABC-Song
+          path: output/
+          retention-days: 7
