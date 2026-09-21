@@ -1,2 +1,2 @@
-runwayml>=3.0.0
+runwayml==5.20.0
 requests>=2.31,<3
