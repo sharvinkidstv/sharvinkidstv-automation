@@ -1,0 +1,12 @@
+{
+  "scenes": [
+    {
+      "title": "A for Apple",
+      "model": "gen4.5",
+      "ratio": "1280:720",
+      "duration": 5,
+      "prompt": "A polished high-end 3D preschool cartoon animation for a children's nursery-rhyme YouTube channel. A cute cheerful preschool child in colorful clothes walks through a bright magical fruit garden toward a large healthy apple tree. The child looks up at a shiny red apple, reaches up and gently picks it, then smiles and waves happily toward the camera. Colorful butterflies flutter around the child, soft clouds drift in the sky, leaves move gently in a light breeze. Smooth natural character motion, expressive face, appealing rounded 3D character design, detailed environment, soft cinematic lighting, vibrant but pleasant preschool colors, subtle depth of field, gentle forward camera dolly, professional children's TV animation, joyful and wholesome, consistent motion, no text, no subtitles, no logos, no watermark.",
+      "narration": "A is for Apple! A, A, Apple! Look at the shiny red apple!"
+    }
+  ]
+}
