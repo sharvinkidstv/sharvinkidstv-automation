@@ -1,0 +1,40 @@
+name: SharvinKidsTV V3 - AI Video
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-ai-video:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install FFmpeg and eSpeak-NG
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg espeak-ng
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate AI video
+        env:
+          RUNWAYML_API_SECRET: ${{ secrets.RUNWAYML_API_SECRET }}
+        run: |
+          python scripts/generate_ai_video.py
+
+      - name: Upload V3 video
+        uses: actions/upload-artifact@v4
+        with:
+          name: SharvinKidsTV-V3-AI-Test
+          path: output/sharvinkidstv-v3-test-a-for-apple.mp4
+          retention-days: 7
